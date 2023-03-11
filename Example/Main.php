@@ -50,7 +50,7 @@ final class Main extends PluginBase
 
         Server::getInstance()->getPluginManager()->registerEvent(PlayerItemUseEvent::class, function (PlayerItemUseEvent $event) use ($dialogue) {
             $player = $event->getPlayer();
-            if ($event->getItem()->getId() == VanillaItems::STONE_SWORD()->getId()) {
+            if ($event->getItem()->equals(VanillaItems::STONE_SWORD(), false, false)) {
                 $dialogue->displayTo([$player]);
             }
         }, EventPriority::LOWEST,
